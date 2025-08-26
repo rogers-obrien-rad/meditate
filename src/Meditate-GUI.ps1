@@ -1,6 +1,18 @@
 Add-Type -AssemblyName PresentationFramework
 Add-Type -AssemblyName System.Windows.Forms
 
+# Check and set execution policy if needed
+try {
+    $currentPolicy = Get-ExecutionPolicy -Scope CurrentUser
+    if ($currentPolicy -eq 'Restricted') {
+        Write-Host "🔧 Adjusting PowerShell execution policy for current user..." -ForegroundColor Yellow
+        Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
+        Write-Host "✅ Execution policy updated successfully!" -ForegroundColor Green
+    }
+} catch {
+    Write-Warning "Could not update execution policy. You may need to run: Set-ExecutionPolicy RemoteSigned -Scope CurrentUser"
+}
+
 # Define Windows API for SetThreadExecutionState
 Add-Type -TypeDefinition @"
 using System;
