@@ -17,28 +17,22 @@
 
 ## 🚀 Quick Start
 
-### Option 1: Easy Launch (Recommended)
-1. Download the latest release
-2. Extract the files to any folder
-3. Double-click `Launch-Meditate.bat`
-4. Choose your meditation method and click "Start Meditation"
+### Create and Use the Desktop Shortcut (Recommended)
+1. Download the latest release ZIP from the Releases page and extract it anywhere.
+2. Open PowerShell in the extracted folder and run:
+   ```powershell
+   .\src\Create-Shortcut.ps1
+   ```
+3. Launch the app using the new desktop shortcut named "Meditate".
+   - You can also press the Windows key and type "Meditate" to find and start the shortcut.
+4. In the app, choose your method and click "Start Meditation".
 
-### Option 2: GUI Version
-```powershell
-.\Meditate-GUI.ps1
-```
-
-### Option 3: Command Line
-```powershell
-# Default meditation (60 seconds, Windows API)
-.\Meditate-CLI.ps1
-
-# Custom interval and method
-.\Meditate-CLI.ps1 -Interval 30 -Method KeyPress
-
-# Silent mode
-.\Meditate-CLI.ps1 -Quiet
-```
+Notes:
+- If you see an execution policy warning, run once in the same PowerShell session:
+  ```powershell
+  Set-ExecutionPolicy -Scope Process Bypass -Force
+  ```
+- The shortcut launches PowerShell hidden for a cleaner experience.
 
 ## 🎯 Use Cases
 
